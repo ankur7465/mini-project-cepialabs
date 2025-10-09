@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toggle Counter with Background Change</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      transition: background-color 0.5s;
+    }
+
+    .counter {
+      font-size: 60px;
+      margin: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #333;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #555;
+    }
+   
+  </style>
+</head>
+<body>
+  <h1>Mini Project For Cepialabs </h1>
+  <div class="counter" id="counter">0</div>
+  <button id="toggleBtn">Toggle Mode (Now:+)</button>
+  <button id="countBtn">Click Me</button>
+  
+
+  <script>
+    let count = 0;
+    let isIncrement = true;
+
+    const counter = document.getElementById("counter");
+    const toggleBtn = document.getElementById("toggleBtn");
+    const countBtn = document.getElementById("countBtn");
+    const box=document.getElementsByClassName("box");
+
+    // Toggle between increment and decrement
+    toggleBtn.addEventListener("click", () => {
+      isIncrement = !isIncrement;
+      toggleBtn.textContent = `Toggle Mode (Now: ${isIncrement ? '+' : '-'})`;
+    });
+   
+  box.addEventListener
+    // Count and change background color
+    countBtn.addEventListener("click", () => {
+      count = isIncrement ? count + 1 : count - 1;
+      counter.textContent = count;
+
+      // Random background color
+      document.body.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+    });
+  </script>
+</body>
+</html>
